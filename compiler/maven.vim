@@ -20,8 +20,8 @@ CompilerSet errorformat=
             \%A%f:[%l\\,%c]\ %m,
             \%-Z[%[A-Z]%#]\ %#-\>%.%#,
             \%-Z[%[A-Z]%#]\ %#Failed\ to\ execute\ goal%.%#,
-            \%-Z[%[A-Z]%#]\ %#%.%#errors,
+            \%-Z[%[A-Z]%#]\ %#%[0-9]%#\ error%.%#,
             \%C[%t%[A-Z]%#]\ %#%m,
             \%-G[%t%[A-Z]%#]\ %#%m,
 " default make
-CompilerSet makeprg=mvn\ -q
+CompilerSet makeprg=mvn

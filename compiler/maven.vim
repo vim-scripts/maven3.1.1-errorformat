@@ -18,10 +18,13 @@ CompilerSet errorformat=
             \[%tRROR]\ %#Non-parseable\ POM\ %f:\ %m\ %#\\@\ line\ %l\\,\ column\ %c%.%#,
             \%A[%t%[A-Z]%#]\ %f:[%l\\,%c]\ %m,
             \%A%f:[%l\\,%c]\ %m,
+            \%-Z[%[A-Z]%#]\ %#-%#%.%#,
             \%-Z[%[A-Z]%#]\ %#-\>%.%#,
             \%-Z[%[A-Z]%#]\ %#Failed\ to\ execute\ goal%.%#,
             \%-Z[%[A-Z]%#]\ %#%[0-9]%#\ error%.%#,
+            \%-Z[%[A-Z]%#]\ %#BUILD%.%#,
             \%C[%t%[A-Z]%#]\ %#%m,
+            \%-G[%t%[A-Z]%#]\ %#-%#%m,
             \%-G[%t%[A-Z]%#]\ %#%m,
 " default make
 CompilerSet makeprg=mvn

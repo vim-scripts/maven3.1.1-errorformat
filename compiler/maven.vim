@@ -13,18 +13,23 @@ if exists(":CompilerSet") != 2		" older Vim always used :setlocal
 endif
 
 " default errorformat
+" This is for maven (maven-compiler-plugin:2.5.1, maven-javadoc-plugin:2.10.1)
+" maven-compiler-plugin 3.1 has too many bugs.
 CompilerSet errorformat=
             \[%tRROR]\ %#Malformed\ POM\ %f:\ %m@%l:%c%.%#,
             \[%tRROR]\ %#Non-parseable\ POM\ %f:\ %m\ %#\\@\ line\ %l\\,\ column\ %c%.%#,
-            \%A[%t%[A-Z]%#]\ %f:[%l\\,%c]\ %m,
-            \%A%f:[%l\\,%c]\ %m,
-            \%-Z[%[A-Z]%#]\ %#-%#%.%#,
-            \%-Z[%[A-Z]%#]\ %#-\>%.%#,
-            \%-Z[%[A-Z]%#]\ %#Failed\ to\ execute\ goal%.%#,
-            \%-Z[%[A-Z]%#]\ %#%[0-9]%#\ error%.%#,
-            \%-Z[%[A-Z]%#]\ %#BUILD%.%#,
-            \%C[%t%[A-Z]%#]\ %#%m,
-            \%-G[%t%[A-Z]%#]\ %#-%#%m,
-            \%-G[%t%[A-Z]%#]\ %#%m,
+            \[%[A-Z]%#]\ %f:[%l\\,%c]\ %t%[a-z]%#:\ %m,
+            \%A[%[A-Z]%#]\ Exit\ code:\ %[0-9]%#\ -\ %f:%l:\ %m,
+            \%A[%[A-Z]%#]\ %f:%l:\ %m,
+            \%-Z[%[A-Z]%#]\ %p^,
+            \%C[%[A-Z]%#]\ %#%m
+
 " default make
 CompilerSet makeprg=mvn
+
+map <F5> :make compile test-compile<CR>:cw<CR>
+imap <F5> <ESC>:make compile test-compile<CR>:cw<CR>
+map <C-F5> :make clean compile test-compile<CR>:cw<CR>
+imap <C-F5> <ESC>:make clean compile test-compile<CR>:cw<CR>
+map <C-F11> :make -q exec:java<CR>
+imap <C-F11> :make -q exec:java<CR>

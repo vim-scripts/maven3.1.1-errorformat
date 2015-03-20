@@ -19,6 +19,7 @@ CompilerSet errorformat=
             \[%tRROR]\ %#Malformed\ POM\ %f:\ %m@%l:%c%.%#,
             \[%tRROR]\ %#Non-parseable\ POM\ %f:\ %m\ %#\\@\ line\ %l\\,\ column\ %c%.%#,
             \[%[A-Z]%#]\ %f:[%l\\,%c]\ %t%[a-z]%#:\ %m,
+            \[%t%[A-Z]%#]\ %f:[%l\\,%c]\ %[%^:]%#:\ %m,
             \%A[%[A-Z]%#]\ Exit\ code:\ %[0-9]%#\ -\ %f:%l:\ %m,
             \%A[%[A-Z]%#]\ %f:%l:\ %m,
             \%-Z[%[A-Z]%#]\ %p^,
@@ -27,9 +28,9 @@ CompilerSet errorformat=
 " default make
 CompilerSet makeprg=mvn
 
-map <F5> :make compile test-compile<CR>:cw<CR>
-imap <F5> <ESC>:make compile test-compile<CR>:cw<CR>
-map <C-F5> :make clean compile test-compile<CR>:cw<CR>
-imap <C-F5> <ESC>:make clean compile test-compile<CR>:cw<CR>
+map <F5> :make compile test-compile<CR>
+imap <F5> <ESC>:make compile test-compile<CR>
+map <C-F5> :make clean compile test-compile<CR>
+imap <C-F5> <ESC>:make clean compile test-compile<CR>
 map <C-F11> :make -q exec:java<CR>
 imap <C-F11> :make -q exec:java<CR>
